@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PUP FINDS"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
+
+    <GridLayout
+        android:id="@+id/itemsGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeText"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_marginTop="16dp"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"/>
+
+    <!-- Include layout for each found item -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="377dp"
+        android:layout_height="503dp"
+        android:layout_below="@+id/welcomeText"
+        android:layout_marginTop="31dp" />
+
+    <Button
+        android:id="@+id/UploadLostItemButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemsGrid"
+        android:layout_marginTop="526dp"
+        android:text="Upload Lost Item" />
+
+    <Button
+        android:id="@+id/UploadFoundItemButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/UploadLostItemButton"
+        android:layout_marginTop="10dp"
+        android:text="Upload Found Item" />
+
+    <include
+        layout="@layout/found_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/UploadFoundItemButton"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>
+
+
+
+
+
+
+

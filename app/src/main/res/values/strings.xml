@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Pup Finds</string>
+    <string-array name="campus_array">
+        <item>Sta. Mesa</item>
+    </string-array>
+
+    <string-array name="category_array">
+        <item>Electronics</item>
+        <item>Personal Care</item>
+        <item>Accessories</item>
+        <item>Food and Drinks</item>
+        <item>Stationary</item>
+        <item>Garments</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="building_array">
+        <item> Mabini </item>
+        <item> Engineering and Architecture</item>
+    </string-array>
+</resources>

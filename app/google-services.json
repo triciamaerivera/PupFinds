@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "912594741339",
+    "project_id": "pup-finds",
+    "storage_bucket": "pup-finds.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912594741339:android:25a94c416862e63792777e",
+        "android_client_info": {
+          "package_name": "com.pupfinds.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaLMFiBRJzvEkVBnoKfRVuQQxUsXZb3P0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
