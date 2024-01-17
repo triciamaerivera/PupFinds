@@ -50,9 +50,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemsGrid"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="20dp"
             android:text="Upload Lost Item"
             app:layout_constraintBottom_toTopOf="@+id/UploadFoundItemButton"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
         <Button
             android:id="@+id/UploadFoundItemButton"
