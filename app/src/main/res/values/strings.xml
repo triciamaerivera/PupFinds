@@ -4,6 +4,7 @@
         <item>Sta. Mesa</item>
     </string-array>
 
+    <string name="spinner_title">Categories</string>
     <string-array name="category_array">
         <item>Electronics</item>
         <item>Personal Care</item>

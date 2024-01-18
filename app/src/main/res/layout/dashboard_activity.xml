@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -10,52 +12,137 @@
         android:layout_height="wrap_content"
         android:text="PUP FINDS"
         android:textSize="18sp"
-        android:layout_centerHorizontal="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="16dp"/>
 
     <GridLayout
         android:id="@+id/itemsGrid"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/welcomeText"
-        android:columnCount="2"
-        android:rowCount="2"
-        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="53dp"
         android:alignmentMode="alignMargins"
-        android:columnOrderPreserved="false"/>
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:rowCount="2" />
 
-    <!-- Include layout for each found item -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="377dp"
-        android:layout_height="503dp"
-        android:layout_below="@+id/welcomeText"
-        android:layout_marginTop="31dp" />
+        android:layout_width="344dp"
+        android:layout_height="441dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/UploadLostItemButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/UploadLostItemButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/itemsGrid"
-        android:layout_marginTop="526dp"
-        android:text="Upload Lost Item" />
+        android:layout_width="356dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="488dp"
+        android:text="Upload Lost Item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.675"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemsGrid" />
 
     <Button
         android:id="@+id/UploadFoundItemButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/UploadLostItemButton"
-        android:layout_marginTop="10dp"
-        android:text="Upload Found Item" />
+        android:layout_width="357dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="4dp"
+        android:text="Upload Found Item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UploadLostItemButton" />
 
     <include
         layout="@layout/found_item_layout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/UploadFoundItemButton"
+        app:layout_constraintTop_toBottomOf="@+id/UploadFoundItemButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp" />
 
-</RelativeLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchEditText"
+        android:layout_width="210dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
+        android:hint="Search for item"
+        app:boxBackgroundMode="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_SearchField"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:imeActionId="@+id/action_search"
+                android:imeActionLabel="Search"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingTop="0dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="0dp" />
+
+            <ImageView
+                android:id="@+id/searchButton"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="Search"
+                android:onClick="onSearchButtonClick"
+                android:src="@drawable/search_button" />
+        </LinearLayout>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/categoryLayout"
+        android:layout_width="107dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="56dp"
+        android:background="#F0F0F0"
+        android:orientation="vertical"
+        android:padding="0dp"
+        app:layout_constraintStart_toEndOf="@+id/searchEditText"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Spinner
+            android:id="@+id/searchCategorySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/categoryTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:visibility="gone" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 
