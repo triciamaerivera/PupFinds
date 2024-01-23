@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#EEEEEE">
 
     <ImageView
         android:id="@+id/imageViewEdge"
         android:layout_width="match_parent"
         android:layout_height="85dp"
+        android:background="#DCDCDC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="96dp"
+        android:background="#EEEEEE"
         android:fillViewport="true"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +48,42 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white">
+            android:background="#EEEEEE">
+
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/radioButtonLost"
+                    android:layout_width="159dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/entry"
+                    android:checked="true"
+                    android:text="Lost"
+                    android:textColorHighlight="@color/PUPFinds"
+                    android:textColorLink="@color/PUPFinds"
+                    android:textCursorDrawable="@color/PUPFinds"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFound"
+                    android:layout_width="159dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/entry"
+                    android:text="Found"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
 
             <EditText
                 android:id="@+id/editTextDate"
@@ -58,7 +97,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup"
                 app:layout_constraintVertical_bias="0.01" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -69,7 +108,7 @@
                 app:layout_constraintGuide_percent="0.5" />
 
             <Spinner
-                android:id="@+id/spinnerFoundCampus"
+                android:id="@+id/spinnerCampus"
                 android:layout_width="159dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="12dp"
@@ -84,13 +123,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
             <Spinner
-                android:id="@+id/spinnerFoundBuilding"
+                android:id="@+id/spinnerBuilding"
                 android:layout_width="159dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="12dp"
-                android:hint="Building"
                 android:background="@drawable/entry"
                 android:entries="@array/building_mabini"
+                android:hint="Building"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:spinnerMode="dropdown"
@@ -114,10 +153,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerFoundCampus" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerCampus" />
 
             <Spinner
-                android:id="@+id/spinnerFoundCategory"
+                android:id="@+id/spinnerCategory"
                 android:layout_width="328dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="15dp"
@@ -131,7 +170,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextLocation" />
 
             <EditText
-                android:id="@+id/foundItemName"
+                android:id="@+id/ItemName"
                 android:layout_width="328dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="15dp"
@@ -142,10 +181,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerFoundCategory" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
 
             <EditText
-                android:id="@+id/foundItemDescription"
+                android:id="@+id/ItemDescription"
                 android:layout_width="328dp"
                 android:layout_height="192dp"
                 android:layout_marginTop="15dp"
@@ -159,7 +198,7 @@
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/foundItemName" />
+                app:layout_constraintTop_toBottomOf="@+id/ItemName" />
 
             <ImageView
                 android:id="@+id/itemImage"
@@ -169,20 +208,20 @@
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@+id/uploadButton"
+                app:layout_constraintBottom_toTopOf="@+id/uploadItemButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.492"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/foundItemDescription"
+                app:layout_constraintTop_toBottomOf="@+id/ItemDescription"
                 app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/image" />
 
             <Button
-                android:id="@+id/uploadButton"
+                android:id="@+id/uploadItemButton"
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="85dp"
                 android:background="@drawable/maroon_rounded"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
@@ -198,5 +237,23 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_menu"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="5dp"
+        android:padding="3dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
