@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_dashboard"
+        android:title="Dashboard"
+        android:icon="@drawable/menu_dashboard"/>
+
+    <item
+        android:id="@+id/bottom_returned"
+        android:title="Returned"
+        android:icon="@drawable/menu_returned"/>
+
+    <item
+        android:id="@+id/bottom_add"
+        android:title="Add"
+        android:icon="@drawable/menu_add"/>
+    
+    <item
+        android:id="@+id/bottom_chat"
+        android:title="Chat"
+        android:icon="@drawable/menu_chat"/>
+
+    <item
+        android:id="@+id/bottom_profile"
+        android:title="Profile"
+        android:icon="@drawable/menu_profile"/>
+    
+</menu>

@@ -110,9 +110,3 @@ public class FoundItem {
     public void setUploadDate(String uploadDate) { this.uploadDate = uploadDate;
     }
 }
-
-
-
-
-
-
