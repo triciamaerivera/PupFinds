@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< Updated upstream
+=======
+    <color name="PUPFinds">#700000</color>
+    <color name="LightRed">#BD3729</color>
+>>>>>>> Stashed changes
 </resources>
