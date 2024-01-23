@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Pup Finds</string>
     <string-array name="campus_array">
-        <item>Sta. Mesa</item>
+        <item>Mabini (Main)</item>
+        <item>NDC Compound</item>
+        <item>M.H. Del Pilar</item>
+        <item></item>
     </string-array>
 
-    <string name="spinner_title">Categories</string>
     <string-array name="category_array">
         <item>Electronics</item>
         <item>Personal Care</item>
@@ -14,8 +16,40 @@
         <item>Garments</item>
         <item>Others</item>
     </string-array>
-    <string-array name="building_array">
-        <item> Mabini </item>
-        <item> Engineering and Architecture</item>
+    <string-array name="building_mabini">
+        <item>Main Building</item>
+        <item>Ninoy Aquino Library and Learning Resources Center</item>
+        <item>Lagoon</item>
+        <item>Oval</item>
+        <item>PUP Gymnasium</item>
+        <item>Laboratory High School</item>
+        <item>Charlie del Rosario Hall</item>
+        <item>Sampaguita Building</item>
+        <item>Nutrition and Food Science Building</item>
+        <item>Linear Park</item>
+        <item>Physical Education Building</item>
+        <item>Tahanan ng Alumni</item>
+        <item>Interfaith Chapel</item>
+        <item>Others</item>
     </string-array>
+
+    <string-array name="building_ndc">
+        <item>College of Architecture and Fine Arts</item>
+        <item>College of Engineering</item>
+        <item>College of Communications</item>
+        <item>PUP MassCom Theater</item>
+        <item>PUP Institute of Technology</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="building_mhdp">
+        <item>PUP Graduate School</item>
+        <item>Hasmin Hostel</item>
+        <item>College of Tourism, Hospitality and Transportation Management</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="empty_array">
+    </string-array>
+
 </resources>
