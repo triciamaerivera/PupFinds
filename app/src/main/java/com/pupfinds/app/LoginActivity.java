@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Login success, navigate to DashboardActivity
-                                    startActivity(new Intent(LoginActivity.this, DashboardActivityFound.class));
+                                    startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                                     finish();
                                 } else {
                                     // If sign in fails, display a message to the user
