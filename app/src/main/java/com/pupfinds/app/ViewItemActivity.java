@@ -108,6 +108,14 @@ public class ViewItemActivity extends AppCompatActivity {
         userDisplayNameTextView.setText(userProfile.getDisplayName());
     }
 
+    public static class UserProfileActivity extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_user_profile); // Use your layout XML file
+        }
+    }
 }
 
 

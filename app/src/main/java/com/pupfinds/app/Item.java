@@ -1,7 +1,7 @@
 package com.pupfinds.app;
 
 
-public class LostItem {
+public class Item {
     private String name;
     private String description;
     private String location;
@@ -20,10 +20,10 @@ public class LostItem {
     private String userDisplayName;
 
 
-    public LostItem() {
+    public Item() {
         // required by Firebase
     }
-    public LostItem(String name, String description, String location, String imageUrl, String userUid, String category, String uploadDate) {
+    public Item(String name, String description, String location, String imageUrl, String userUid, String category, String uploadDate) {
         this.name = name;
         this.description = description;
         this.location = location;

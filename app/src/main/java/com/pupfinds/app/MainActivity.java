@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (currentUser != null) {
             // User is signed in, redirect to DashboardActivity
-            startActivity(new Intent(this, DashboardActivity.class));
+            startActivity(new Intent(this, DashboardActivityLost.class));
         } else {
             // No user is signed in, redirect to LoginActivity
             startActivity(new Intent(this, LoginActivity.class));

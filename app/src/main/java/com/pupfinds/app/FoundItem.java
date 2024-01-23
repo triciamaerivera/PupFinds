@@ -99,6 +99,7 @@ public class FoundItem {
     }
 
     public void setUserDisplayName(String userDisplayName) { this.userDisplayName = userDisplayName; }
+<<<<<<< Updated upstream
 
     public String getCategory() { return category; }
 
@@ -112,7 +113,16 @@ public class FoundItem {
 }
 
 
+=======
+>>>>>>> Stashed changes
 
+    public String getCategory() { return category; }
 
+    public void setCategory(String category) { this.category = category; }
 
+    public String getUploadDate() { return uploadDate;
+    }
 
+    public void setUploadDate(String uploadDate) { this.uploadDate = uploadDate;
+    }
+}
