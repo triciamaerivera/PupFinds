@@ -76,6 +76,10 @@ public class FoundItem {
 
     public void setLocation(String location) { this.location = location; }
 
+    public String getFullLocation() { return location + ", " + building + ", " + campus; }
+
+    public void setFullLocation(String location) { this.location = location; }
+
     public String getProfileImageUrl() {
         return profileImageUrl;
     }

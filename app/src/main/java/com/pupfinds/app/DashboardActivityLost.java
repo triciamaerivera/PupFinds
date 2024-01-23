@@ -154,9 +154,11 @@ public class DashboardActivityLost extends AppCompatActivity {
             // onItemClick logic
             Intent viewItemIntent = new Intent(DashboardActivityLost.this, ViewItemActivity.class);
             viewItemIntent.putExtra("ITEM_NAME", item.getName());
+            viewItemIntent.putExtra("ITEM_CATEGORY", item.getCategory());
             viewItemIntent.putExtra("ITEM_DESCRIPTION", item.getDescription());
-            viewItemIntent.putExtra("ITEM_LOCATION", item.getLocation());
+            viewItemIntent.putExtra("ITEM_LOCATION", item.getFullLocation());
             viewItemIntent.putExtra("ITEM_IMAGE_URL", item.getImageUrl());
+            viewItemIntent.putExtra("LOST_OR_FOUND", "LOST");
 
             // Add user profile information to the intent
             viewItemIntent.putExtra("USER_UID", item.getUserUid());

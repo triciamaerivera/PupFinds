@@ -39,9 +39,9 @@
 
             <TextView
                 android:id="@+id/itemNameTextView"
-                android:layout_width="359dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="30dp"
+                android:layout_width="340dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="15dp"
                 android:hint="Item Name"
                 android:textColor="@color/PUPFinds"
@@ -50,42 +50,50 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/itemImageView" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="26dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/itemLocationTextView"
-                app:srcCompat="@drawable/pin" />
-
             <TextView
                 android:id="@+id/itemLocationTextView"
-                android:layout_width="272dp"
+                android:layout_width="329dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:hint="Location"
-                android:textColor="@color/PUPFinds"
+                android:layout_marginStart="27dp"
+                android:hint="Full Location"
+                android:textColor="#DF704D4D"
                 android:textSize="16dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/itemNameTextView" />
+
+            <TextView
+                android:id="@+id/itemCategoryTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/yellow_rounded"
+                android:paddingStart="11dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="11dp"
+                android:paddingBottom="3dp"
+                android:text="Category"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemLocationTextView" />
 
             <View
                 android:id="@+id/line"
                 android:layout_width="340dp"
                 android:layout_height="1dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:background="#D1D1D1"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/itemLocationTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/itemCategoryTextView" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageViewProfilePicture"
                 android:layout_width="53dp"
                 android:layout_height="53dp"
-                android:layout_marginStart="26dp"
+                android:layout_marginStart="23dp"
                 android:layout_marginTop="15dp"
                 android:src="@drawable/reg_profile"
                 app:civ_border_color="#FFFFFF"
@@ -132,21 +140,20 @@
                 android:id="@+id/itemDescription"
                 android:layout_width="349dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="17dp"
+                android:layout_marginStart="10dp"
                 android:hint="Item Description"
                 android:textSize="19dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <Button
-                android:id="@+id/buttonClaim"
+                android:id="@+id/buttonClaimOrReturn"
                 android:layout_width="220dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
                 android:background="@drawable/maroon_rounded"
-                android:text="Claim Item "
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -167,10 +174,9 @@
         app:srcCompat="@drawable/maroon_edge" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/viewHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Unclaimed Item"
         android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold"

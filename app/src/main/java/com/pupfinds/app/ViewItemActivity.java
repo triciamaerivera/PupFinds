@@ -29,20 +29,34 @@ public class ViewItemActivity extends AppCompatActivity {
         if (extras != null) {
             String itemName = extras.getString("ITEM_NAME", "");
             String itemDescription = extras.getString("ITEM_DESCRIPTION", "");
+            String itemCategory = extras.getString("ITEM_CATEGORY", "");
             String itemLocation = extras.getString("ITEM_LOCATION", "");
             String imageUrl = extras.getString("ITEM_IMAGE_URL", "");
-
+            Log.i("TAG", "This is a debug message" + itemLocation);
             String userUid = extras.getString("USER_UID", "");
+            String lostOrFound = extras.getString("LOST_OR_FOUND", "");
             fetchUserProfile(userUid);
-
-
 
 
             // Find views in the layout
             ImageView itemImageView = findViewById(R.id.itemImageView);
             TextView itemNameTextView = findViewById(R.id.itemNameTextView);
+            TextView itemCategoryTextView = findViewById(R.id.itemCategoryTextView);
             TextView itemDescriptionTextView = findViewById(R.id.itemDescription);
             TextView itemLocationTextView = findViewById(R.id.itemLocationTextView);
+            TextView viewHeader = findViewById(R.id.viewHeader);
+            Button buttonClaimOrReturn = findViewById(R.id.buttonClaimOrReturn);
+
+            itemCategoryTextView.setText(itemCategory);
+            if (lostOrFound.equals("LOST")){
+                viewHeader.setText("Lost Item");
+                buttonClaimOrReturn.setText("Return Item");
+            }
+
+            else if (lostOrFound.equals("FOUND")){
+                viewHeader.setText("Found Item");
+                buttonClaimOrReturn.setText("Claim Item");
+            }
 
             // loads the image from the URL using Picasso
             if (!imageUrl.isEmpty()) {
@@ -55,7 +69,7 @@ public class ViewItemActivity extends AppCompatActivity {
             itemLocationTextView.setText(itemLocation);
 
 
-            Button claimButton = findViewById(R.id.buttonClaim);
+            Button claimButton = findViewById(R.id.buttonClaimOrReturn);
             claimButton.setOnClickListener(view -> {
                 //  To-do: code for the claim button
             });

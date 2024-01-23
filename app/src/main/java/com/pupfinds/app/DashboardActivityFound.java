@@ -154,8 +154,10 @@ public class DashboardActivityFound extends AppCompatActivity {
             Intent viewItemIntent = new Intent(DashboardActivityFound.this, ViewItemActivity.class);
             viewItemIntent.putExtra("ITEM_NAME", item.getName());
             viewItemIntent.putExtra("ITEM_DESCRIPTION", item.getDescription());
-            viewItemIntent.putExtra("ITEM_LOCATION", item.getLocation());
+            viewItemIntent.putExtra("ITEM_CATEGORY", item.getCategory());
+            viewItemIntent.putExtra("ITEM_LOCATION", item.getFullLocation());
             viewItemIntent.putExtra("ITEM_IMAGE_URL", item.getImageUrl());
+            viewItemIntent.putExtra("LOST_OR_FOUND", "FOUND");
 
             // Add user profile information to the intent
             viewItemIntent.putExtra("USER_UID", item.getUserUid());

@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/white_edge" />
 
     <ImageView
-        android:id="@+id/ImageViewProfilePicture"
+        android:id="@+id/UserImageViewProfilePicture"
         android:layout_width="231dp"
         android:layout_height="205dp"
         android:scaleType="centerCrop"
@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.131" />
 
     <TextView
-        android:id="@+id/ProgramTextView"
+        android:id="@+id/UserProgramTextView"
         android:layout_width="293dp"
         android:layout_height="29dp"
         android:layout_marginTop="16dp"
@@ -41,10 +41,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/displayNameTextView" />
+        app:layout_constraintTop_toBottomOf="@id/UserNameTextView" />
 
     <TextView
-        android:id="@+id/displayNameTextView"
+        android:id="@+id/UserNameTextView"
         android:layout_width="293dp"
         android:layout_height="29dp"
         android:layout_marginBottom="404dp"
@@ -54,7 +54,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ImageViewProfilePicture"
+        app:layout_constraintTop_toBottomOf="@+id/UserImageViewProfilePicture"
         app:layout_constraintVertical_bias="0.724" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

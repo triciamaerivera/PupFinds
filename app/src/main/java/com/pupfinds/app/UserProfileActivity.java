@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.squareup.picasso.Picasso;
 
 public class UserProfileActivity extends AppCompatActivity {
 
@@ -22,9 +23,9 @@ public class UserProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         // Initialize views
-        profilePictureImageView = findViewById(R.id.ImageViewProfilePicture);
-        displayNameTextView = findViewById(R.id.displayNameTextView);
-        programTextView = findViewById(R.id.ProgramTextView);
+        ImageView userProfilePhotoImageView = findViewById(R.id.UserImageViewProfilePicture);
+        TextView userProgramTextView = findViewById(R.id.UserProgramTextView);
+        TextView userDisplayNameTextView = findViewById(R.id.UserNameTextView);
 
         // add bottom navigation menu
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
