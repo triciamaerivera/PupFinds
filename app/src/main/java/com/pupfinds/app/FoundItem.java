@@ -1,6 +1,5 @@
 package com.pupfinds.app;
 
-
 public class FoundItem {
     private String name;
     private String description;
@@ -8,8 +7,6 @@ public class FoundItem {
     private String imageUrl;
     private String campus;
     private String building;
-    private String uploadDate;
-    private String category;
 
     // Fields for user profile information
     private String profileImageUrl;
@@ -23,15 +20,12 @@ public class FoundItem {
     public FoundItem() {
         // required by Firebase
     }
-    public FoundItem(String name, String description, String location, String imageUrl, String userUid, String category, String uploadDate) {
+    public FoundItem(String name, String description, String location, String imageUrl, String userUid) {
         this.name = name;
         this.description = description;
         this.location = location;
         this.imageUrl = imageUrl;
-        this.uploadDate = uploadDate;
         this.userUid = userUid;
-        this.category = category;
-
     }
 
     public String getImageUrl() {
@@ -99,30 +93,10 @@ public class FoundItem {
     }
 
     public void setUserDisplayName(String userDisplayName) { this.userDisplayName = userDisplayName; }
-<<<<<<< Updated upstream
-
-    public String getCategory() { return category; }
-
-    public void setCategory(String category) { this.category = category; }
-
-    public String getUploadDate() { return uploadDate;
-    }
-
-    public void setUploadDate(String uploadDate) { this.uploadDate = uploadDate;
-    }
 }
 
 
-=======
->>>>>>> Stashed changes
 
-    public String getCategory() { return category; }
 
-    public void setCategory(String category) { this.category = category; }
 
-    public String getUploadDate() { return uploadDate;
-    }
 
-    public void setUploadDate(String uploadDate) { this.uploadDate = uploadDate;
-    }
-}

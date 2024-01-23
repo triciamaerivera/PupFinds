@@ -13,7 +13,7 @@ public class FoundItemViewHolder extends RecyclerView.ViewHolder implements View
 
     private final ImageView itemImageView;
     private final TextView itemNameTextView;
-    private final TextView itemLocationTextView;
+    private final TextView itemDescriptionTextView;
     private FoundItemAdapter.AdapterOnItemClickListener listener;
 
     private FoundItem foundItem;
@@ -23,7 +23,7 @@ public class FoundItemViewHolder extends RecyclerView.ViewHolder implements View
         this.listener = listener;
         itemImageView = itemView.findViewById(R.id.itemImageView);
         itemNameTextView = itemView.findViewById(R.id.itemNameTextView);
-        itemLocationTextView = itemView.findViewById(R.id.itemLocationTextView);
+        itemDescriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
 
         itemView.setOnClickListener(this);
     }
@@ -40,7 +40,7 @@ public class FoundItemViewHolder extends RecyclerView.ViewHolder implements View
 
 
         itemNameTextView.setText(foundItem.getName());
-        itemLocationTextView.setText(foundItem.getLocation());
+        itemDescriptionTextView.setText(foundItem.getDescription());
     }
 
     @Override

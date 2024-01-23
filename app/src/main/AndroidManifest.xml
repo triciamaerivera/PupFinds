@@ -20,19 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        
         <activity
-            android:name=".DashboardActivityLost"
-            android:exported="true">
-        </activity>
-
-        <activity
-            android:name=".DashboardActivityFound"
-            android:exported="true">
-        </activity>
-
-        <activity
-            android:name=".ReturnedItemsActivity"
+            android:name=".DashboardActivity"
             android:exported="true">
         </activity>
 
@@ -47,11 +37,6 @@
         </activity>
 
         <activity
-            android:name=".UploadItemActivity"
-            android:exported="true">
-        </activity>
-
-        <activity
             android:name=".LoginActivity">
         </activity>
 
@@ -61,10 +46,6 @@
 
         <activity
             android:name=".ViewItemActivity">
-        </activity>
-
-        <activity
-            android:name=".UserProfileActivity">
         </activity>
     </application>
 

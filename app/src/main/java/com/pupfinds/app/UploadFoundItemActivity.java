@@ -22,8 +22,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.util.Date;
-
 
 public class  UploadFoundItemActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -48,8 +46,7 @@ public class  UploadFoundItemActivity extends AppCompatActivity {
 
         EditText foundName = findViewById(R.id.foundItemName);
         EditText foundDescription = findViewById(R.id.foundItemDescription);
-        EditText editTextLocation = findViewById(R.id.editTextLocation);// Added this line
-        EditText date = findViewById(R.id.editTextDate);
+        EditText editTextLocation = findViewById(R.id.editTextLocation); // Added this line
         Spinner spinnerCampus = findViewById(R.id.spinnerFoundCampus);
         Spinner spinnerBuilding = findViewById(R.id.spinnerFoundBuilding); // Added this line
         ImageView itemImage = findViewById(R.id.itemImage);
@@ -63,11 +60,9 @@ public class  UploadFoundItemActivity extends AppCompatActivity {
             // Get the item details from your UI elements (EditText, Spinner)
             String itemName = foundName.getText().toString().trim();
             String itemDescription = foundDescription.getText().toString().trim();
-            String location = editTextLocation.getText().toString().trim();
-            String campus = spinnerCampus.getSelectedItem().toString();
-            String building = spinnerBuilding.getSelectedItem().toString();
-            String category = spinnerCategory.getSelectedItem().toString();
-            String uploadDate =  date.getText().toString().trim();
+            String location = editTextLocation.getText().toString().trim(); // Added this line
+            String campus = spinnerCampus.getSelectedItem().toString(); // Added this line
+            String building = spinnerBuilding.getSelectedItem().toString(); // Added this line
 
             // Check if the itemName, location, and image are not empty before uploading
             if (!itemName.isEmpty() && !location.isEmpty() && selectedImageUri != null) {
@@ -75,7 +70,7 @@ public class  UploadFoundItemActivity extends AppCompatActivity {
                 String itemId = foundItemsRef.push().getKey();
 
                 // Upload the image to Firebase Storage and item details to Realtime Database
-                uploadImage(itemId, selectedImageUri, itemName, itemDescription, location, campus, building, category, uploadDate);
+                uploadImage(itemId, selectedImageUri, itemName, itemDescription, location, campus, building);
             } else {
                 // Handle the case where itemName, location, or image is empty
                 Toast.makeText(UploadFoundItemActivity.this, "Item Name, Location, and Image are required", Toast.LENGTH_SHORT).show();
@@ -120,7 +115,7 @@ public class  UploadFoundItemActivity extends AppCompatActivity {
         }
     }
 
-    private void uploadImage(String itemId, Uri imageUri, String itemName, String itemDescription, String location, String campus, String building, String category, String uploadDate) {
+    private void uploadImage(String itemId, Uri imageUri, String itemName, String itemDescription, String location, String campus, String building) {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
@@ -136,14 +131,10 @@ public class  UploadFoundItemActivity extends AppCompatActivity {
             uploadTask.addOnSuccessListener(taskSnapshot -> {
                 imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
 
-
-
                     // FoundItem object
-                    FoundItem foundItem = new FoundItem(itemName, itemDescription, location, uri.toString(), userUid, category, uploadDate);
+                    FoundItem foundItem = new FoundItem(itemName, itemDescription, location, uri.toString(), userUid);
                     foundItem.setCampus(campus);
                     foundItem.setBuilding(building);
-                    foundItem.setCategory(category);
-
 
                     // Upload the found item details to the "found_items" node in the database
                     foundItemsRef.child(itemId).setValue(foundItem);
