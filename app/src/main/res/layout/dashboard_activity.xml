@@ -107,18 +107,15 @@
         app:layout_constraintStart_toEndOf="@+id/lostButton"
         app:layout_constraintTop_toBottomOf="@+id/border" />
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="359dp"
-        android:layout_height="536dp"
+        android:layout_height="wrap_content"
         android:padding="10dp"
-        android:paddingBottom="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        android:paddingBottom="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lostButton"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintTop_toBottomOf="@+id/lostButton" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -127,7 +124,6 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_menu"
         android:fadingEdge="horizontal|vertical"
-        android:fadingEdgeLength="15dp"
         android:padding="3dp"
         app:itemIconSize="30dp"
         app:itemIconTint="@drawable/item_selector"
@@ -135,7 +131,6 @@
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu" />
 

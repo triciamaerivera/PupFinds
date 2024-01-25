@@ -37,16 +37,6 @@
         </activity>
 
         <activity
-            android:name=".UploadFoundItemActivity"
-            android:exported="true">
-        </activity>
-
-        <activity
-            android:name=".UploadLostItemActivity"
-            android:exported="true">
-        </activity>
-
-        <activity
             android:name=".UploadItemActivity"
             android:exported="true">
         </activity>
@@ -61,6 +51,21 @@
 
         <activity
             android:name=".ViewItemActivity">
+        </activity>
+
+        <activity
+            android:name=".ChatsActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".EvidenceSubmissionActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".ConvoActivity"
+            android:exported="true">
         </activity>
 
         <activity

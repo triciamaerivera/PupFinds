@@ -92,7 +92,7 @@ public class ReturnedItemsActivity extends AppCompatActivity {
                 return true;
             } else if (item.getItemId() == R.id.bottom_chat) {
                 // Handle Chat menu item click
-                startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+                startActivity(new Intent(getApplicationContext(), ChatsActivity.class));
                 overridePendingTransition(R.anim.fade, R.anim.fade);
                 finish();
                 return true;
