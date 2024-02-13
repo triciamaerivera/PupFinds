@@ -17,45 +17,56 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.984"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/white_edge" />
 
-    <ImageView
-        android:id="@+id/UserImageViewProfilePicture"
-        android:layout_width="231dp"
-        android:layout_height="205dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageViewProfilePic"
+        android:layout_width="177dp"
+        android:layout_height="192dp"
+        android:layout_marginTop="84dp"
+        android:src="@drawable/reg_profile"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.131" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ButtonEditProfilePic"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/add_pic"
+        app:layout_constraintStart_toStartOf="@+id/imageViewProfilePic"
+        app:layout_constraintTop_toTopOf="@+id/imageViewProfilePic" />
+
 
     <TextView
-        android:id="@+id/UserProgramTextView"
-        android:layout_width="293dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="16dp"
-        android:textColor="#BD3729"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/UserNameTextView" />
-
-    <TextView
-        android:id="@+id/UserNameTextView"
-        android:layout_width="293dp"
-        android:layout_height="29dp"
-        android:layout_marginBottom="404dp"
+        android:id="@+id/NameTextView"
+        android:layout_width="251dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="Display name"
+        android:textAlignment="center"
         android:textColor="@color/PUPFinds"
-        android:textSize="20sp"
+        android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UserImageViewProfilePicture"
-        app:layout_constraintVertical_bias="0.724" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewProfilePic" />
+
+    <TextView
+        android:id="@+id/ProgramTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Program"
+        android:textColor="#674747"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NameTextView" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -75,6 +86,44 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu" />
+
+    <Button
+        android:id="@+id/buttonApply"
+        android:layout_width="200dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/dashboard_clicked"
+        android:text="Apply changes"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ProgramTextView" />
+
+    <Button
+        android:id="@+id/buttonDiscard"
+        android:layout_width="200dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/dashboard_not_clicked"
+        android:text="Discard changes"
+        android:textColor="@color/LightRed"
+        android:textSize="13sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonApply" />
+
+    <Button
+        android:id="@+id/buttonLogOut"
+        android:layout_width="27dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/log_out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
