@@ -243,10 +243,10 @@ public class DashboardActivityLost extends AppCompatActivity {
             List<LostItem> filteredItems = new ArrayList<>();
             for (LostItem item : lostItemList) {
                 boolean matchesSearch = searchQuery.isEmpty() ||
-                        item.getName().toLowerCase().contains(searchQuery) ||
-                        item.getLocation().toLowerCase().contains(searchQuery) ||
-                        item.getBuilding().toLowerCase().contains(searchQuery) ||
-                        item.getCampus().toLowerCase().contains(searchQuery);
+                        (item.getName() != null && item.getName().toLowerCase().contains(searchQuery)) ||
+                        (item.getLocation() != null && item.getLocation().toLowerCase().contains(searchQuery)) ||
+                        (item.getBuilding() != null && item.getBuilding().toLowerCase().contains(searchQuery)) ||
+                        (item.getCampus() != null && item.getCampus().toLowerCase().contains(searchQuery));
 
                 boolean matchesCategory = selectedCategory.isEmpty() ||
                         (selectedCategory.equals("Categories") && item.getCategory() != null && !item.getCategory().isEmpty()) ||
@@ -259,6 +259,7 @@ public class DashboardActivityLost extends AppCompatActivity {
             lostItemAdapter.setLostItems(filteredItems);
         }
     }
+
 
     private void loadLostItems() {
         lostItemsRef.addValueEventListener(new ValueEventListener() {

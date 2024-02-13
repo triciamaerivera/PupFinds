@@ -33,7 +33,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/entry"
-            android:imeActionId="@+id/action_search"
             android:imeActionLabel="Search"
             android:imeOptions="actionSearch"
             android:inputType="text"
