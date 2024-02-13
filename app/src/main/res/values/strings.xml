@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pup Finds</string>
+    <string name="app_name">PUP Finds</string>
     <string-array name="campus_array">
         <item>Mabini (Main)</item>
         <item>NDC Compound</item>
