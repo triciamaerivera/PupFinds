@@ -56,6 +56,13 @@ public class DashboardActivityFound extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_activity);
 
+        searchEditText = findViewById(R.id.editText_SearchField);
+        if (searchEditText == null) {
+            Log.e("DashboardActivityLost", "searchEditText is null");
+            return;
+        }
+
+
         categoryArray = getResources().getStringArray(R.array.category_array);
         List<String> categoryList = new ArrayList<>(Arrays.asList(categoryArray));
         categoryList.add(0, "Categories");
