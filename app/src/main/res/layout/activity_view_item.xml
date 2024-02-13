@@ -80,7 +80,7 @@
 
             <View
                 android:id="@+id/line"
-                android:layout_width="340dp"
+                android:layout_width="360dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:background="#D1D1D1"
@@ -138,8 +138,8 @@
 
             <TextView
                 android:id="@+id/itemDescription"
-                android:layout_width="349dp"
-                android:layout_height="wrap_content"
+                android:layout_width="361dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="10dp"
                 android:hint="Item Description"
                 android:textSize="19dp"
