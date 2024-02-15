@@ -1,15 +1,21 @@
 package com.pupfinds.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.view.View;
+import android.widget.Button;
+import android.view.View;
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -58,6 +64,7 @@ public class ViewItemActivity extends AppCompatActivity {
                 buttonClaimOrReturn.setText("Claim Item");
             }
 
+
             // loads the image from the URL using Picasso
             if (!imageUrl.isEmpty()) {
                 Picasso.get().load(imageUrl).into(itemImageView);
@@ -68,11 +75,14 @@ public class ViewItemActivity extends AppCompatActivity {
             itemDescriptionTextView.setText(itemDescription);
             itemLocationTextView.setText(itemLocation);
 
-
-            Button claimButton = findViewById(R.id.buttonClaimOrReturn);
-            claimButton.setOnClickListener(view -> {
-                //  To-do: code for the claim button
+            buttonClaimOrReturn.setOnClickListener(view -> {
+                Intent intent = new Intent(ViewItemActivity.this, ConvoActivity.class);
+                intent.putExtra("current_user_uid", FirebaseAuth.getInstance().getUid()); // Pass the current user's UID
+                intent.putExtra("item_owner_uid", userUid); // Pass the item owner's UID
+                startActivity(intent);
+                finish();
             });
+
         }
 
         // for debugging purposes
