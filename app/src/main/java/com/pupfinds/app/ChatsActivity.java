@@ -26,12 +26,16 @@ import java.util.List;
 
 public class ChatsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReferenceUsers;
+
+    private DatabaseReference databaseReferenceChats;
 
     private RecyclerView recyclerView;
     private Toolbar toolbarChat;
 
     private String program;
+
+    private List chatManager;
 
     private ChatsUserAdapter chatsUserAdapter;
 
@@ -50,8 +54,35 @@ public class ChatsActivity extends AppCompatActivity {
             recyclerView.setAdapter(chatsUserAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-            databaseReference = FirebaseDatabase.getInstance().getReference("users");
-            databaseReference.addValueEventListener(new ValueEventListener() {
+            databaseReferenceChats = FirebaseDatabase.getInstance().getReference("chats");
+            databaseReferenceChats.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    chatManager = new ArrayList<>();
+
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        String uid = dataSnapshot.getKey();
+                        int maxLength = Math.min(uid.length(), 28);
+                        String senderUid = uid.substring(0, maxLength);
+
+                        String receiverUid = uid.substring(28);
+                        if(uid.contains(mAuth.getUid())){
+                            chatManager.add(senderUid);
+                            chatManager.add(receiverUid);
+                        }
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+            databaseReferenceUsers = FirebaseDatabase.getInstance().getReference("users");
+            databaseReferenceUsers.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     List<UserModel> userModelList = new ArrayList<>();
@@ -61,7 +92,8 @@ public class ChatsActivity extends AppCompatActivity {
                         UserModel userModel = dataSnapshot.getValue(UserModel.class);
                         userModel.setUserUid(uid);
 
-                        if (userModel != null && !userModel.getUserUid().equals(mAuth.getUid())) {
+                        // Add to userModelList only if the userModel.getUserUid() is in the chatManager list
+                        if (userModel != null && chatManager.contains(userModel.getUserUid()) && !userModel.getUserUid().equals(mAuth.getUid())) {
                             userModelList.add(userModel);
                         }
                     }
@@ -83,13 +115,13 @@ public class ChatsActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.bottom_dashboard) {
-                startActivity(new Intent(getApplicationContext(), DashboardActivityFound.class));
+                startActivity(new Intent(getApplicationContext(), DashboardActivityLost.class));
                 overridePendingTransition(R.anim.fade, R.anim.fade);
                 finish();
                 return true;
             } else if (item.getItemId() == R.id.bottom_returned) {
                 // Handle Returned menu item click
-                startActivity(new Intent(getApplicationContext(), DashboardActivityFound.class));
+                startActivity(new Intent(getApplicationContext(), ReturnedItemsActivity.class));
                 overridePendingTransition(R.anim.fade, R.anim.fade);
                 finish();
                 return true;
