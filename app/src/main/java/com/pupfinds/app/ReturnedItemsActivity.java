@@ -44,11 +44,6 @@ public class ReturnedItemsActivity extends AppCompatActivity {
     private String selectedCategory = "";
     private String[] categoryArray;
     private ImageView searchButton;
-    private MenuItem menuItemDashboard;
-    private MenuItem menuItemReturned;
-    private MenuItem menuItemAdd;
-    private MenuItem menuItemChat;
-    private MenuItem menuItemProfile;
 
 
     @Override
@@ -120,7 +115,7 @@ public class ReturnedItemsActivity extends AppCompatActivity {
         foundItemList = new ArrayList<>();
         foundItemAdapter = new FoundItemAdapter(foundItemList, item -> {
             // onItemClick logic
-            Intent viewItemIntent = new Intent(ReturnedItemsActivity.this, ViewItemActivity.class);
+            Intent viewItemIntent = new Intent(ReturnedItemsActivity.this, ViewReturnedItemActivity.class);
             viewItemIntent.putExtra("ITEM_NAME", item.getName());
             viewItemIntent.putExtra("ITEM_DESCRIPTION", item.getDescription());
             viewItemIntent.putExtra("ITEM_LOCATION", item.getLocation());
@@ -145,7 +140,7 @@ public class ReturnedItemsActivity extends AppCompatActivity {
 
         // Initialize Firebase Database reference
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        foundItemsRef = database.getReference("found_items");
+        foundItemsRef = database.getReference("returned_items");
 
         // Set up RecyclerView with the adapter
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));

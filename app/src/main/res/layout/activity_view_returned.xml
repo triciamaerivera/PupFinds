@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@color/white"
+            android:scrollbarSize="20dp">
+
+
+            <ImageView
+                android:id="@+id/itemImageViewReturned"
+                android:layout_width="match_parent"
+                android:layout_height="360dp"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/placeholder_image" />
+
+            <TextView
+                android:id="@+id/itemNameTextViewReturned"
+                android:layout_width="340dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:hint="Item Name"
+                android:textColor="@color/PUPFinds"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemImageViewReturned" />
+
+            <TextView
+                android:id="@+id/itemLocationTextViewReturned"
+                android:layout_width="329dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:hint="Full Location"
+                android:textColor="#DF704D4D"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemNameTextViewReturned" />
+
+            <View
+                android:id="@+id/lineReturned"
+                android:layout_width="360dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#D1D1D1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.529"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemLocationTextViewReturned" />
+
+
+            <TextView
+                android:id="@+id/textViewLabelOwner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Owner"
+                android:textColor="@color/PUPFinds"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewProfilePictureOwner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemLocationTextViewReturned"
+                app:layout_constraintVertical_bias="0.136" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewProfilePictureOwner"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/reg_profile"
+                app:civ_border_color="#FFFFFF"
+                app:civ_border_width="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lineReturned" />
+
+            <TextView
+                android:id="@+id/DisplayNameTextViewOwner"
+                android:layout_width="251dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="32dp"
+                android:hint="Display name"
+                android:textColor="@color/PUPFinds"
+                android:textSize="17dp"
+                app:layout_constraintStart_toEndOf="@+id/imageViewProfilePictureOwner"
+                app:layout_constraintTop_toBottomOf="@+id/lineReturned" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewProfilePictureFinder"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="36dp"
+                android:src="@drawable/reg_profile"
+                app:civ_border_color="#FFFFFF"
+                app:civ_border_width="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewProfilePictureOwner" />
+
+            <TextView
+                android:id="@+id/DisplayNameTextViewFinder"
+                android:layout_width="251dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:hint="Display name"
+                android:textColor="@color/PUPFinds"
+                android:textSize="17dp"
+                app:layout_constraintStart_toEndOf="@+id/imageViewProfilePictureFinder"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelFinder" />
+
+            <TextView
+                android:id="@+id/textViewLabelFinder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="Finder"
+                android:textColor="@color/PUPFinds"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewProfilePictureFinder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewProfilePictureOwner"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/border"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/maroon_edge" />
+
+    <TextView
+        android:id="@+id/viewHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Returned Item"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

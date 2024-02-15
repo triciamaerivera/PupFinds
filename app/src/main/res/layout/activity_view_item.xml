@@ -144,12 +144,13 @@
                 android:hint="Item Description"
                 android:textSize="19dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <Button
-                android:id="@+id/buttonClaimOrReturn"
-                android:layout_width="220dp"
+                android:id="@+id/buttonMessagePost"
+                android:layout_width="240dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="50dp"
@@ -162,6 +163,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/itemDescription"
                 app:layout_constraintVertical_bias="0.293" />
+
+            <Button
+                android:id="@+id/buttonClaimedOrReturned"
+                android:layout_width="240dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/maroon_rounded"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.512"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonMessagePost"
+                app:layout_constraintVertical_bias="0.068" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
