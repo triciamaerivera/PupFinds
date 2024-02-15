@@ -55,6 +55,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/reg_profile"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"

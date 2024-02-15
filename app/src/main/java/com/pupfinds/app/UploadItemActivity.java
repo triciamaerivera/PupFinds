@@ -238,11 +238,13 @@ public class UploadItemActivity extends AppCompatActivity {
                         // Upload the lost item details to the "lost_items" node in the database
                         itemsRef.child(itemId).setValue(lostItem);
                     }
+                    Toast.makeText(UploadItemActivity.this, "Item posted successfully", Toast.LENGTH_SHORT).show();
                     // Navigate to DashboardActivity after successful upload
-                    startActivity(new Intent(UploadItemActivity.this, DashboardActivityFound.class));
+                    startActivity(new Intent(UploadItemActivity.this, DashboardActivityLost.class));
                     finish();
 
                     Log.d("UploadItemActivity", "uploadImage: Image uploaded successfully");
+
 
                 }).addOnFailureListener(e -> {
                     Log.e("UploadItemActivity", "Error getting image download URL: " + e.getMessage());
