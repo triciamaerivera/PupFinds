@@ -1,6 +1,7 @@
 package com.pupfinds.app;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,33 +28,26 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        // Create a FrameLayout to hold the VideoView
         FrameLayout frameLayout = new FrameLayout(this);
         frameLayout.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+        frameLayout.setBackgroundColor(Color.parseColor("#700000"));
 
-        // Create the VideoView and set its layout parameters
         VideoView videoHolder = new VideoView(this);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
         videoHolder.setLayoutParams(layoutParams);
 
-        // Add the VideoView to the FrameLayout
         frameLayout.addView(videoHolder);
-
-        // Set the content view to the FrameLayout
         setContentView(frameLayout);
 
-        // Set the video file
         Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splash_video);
         videoHolder.setVideoURI(video);
 
-        // Set a completion listener to jump to the next activity when the video is completed
         videoHolder.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             public void onCompletion(MediaPlayer mp) {
                 jump();
             }
         });
 
-        // Start playing the video
         videoHolder.start();
 
         // Initialize Firebase
