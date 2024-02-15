@@ -85,13 +85,13 @@ public class UserProfileActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.bottom_dashboard) {
-                startActivity(new Intent(getApplicationContext(), DashboardActivityFound.class));
+                startActivity(new Intent(getApplicationContext(), DashboardActivityLost.class));
                 overridePendingTransition(R.anim.fade, R.anim.fade);
                 finish();
                 return true;
             } else if (item.getItemId() == R.id.bottom_returned) {
                 // Handle Returned menu item click
-                startActivity(new Intent(getApplicationContext(), DashboardActivityFound.class));
+                startActivity(new Intent(getApplicationContext(), ReturnedItemsActivity.class));
                 overridePendingTransition(R.anim.fade, R.anim.fade);
                 finish();
                 return true;

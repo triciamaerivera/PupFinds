@@ -67,7 +67,7 @@ public class UploadItemActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.bottom_dashboard) {
-                startActivity(new Intent(getApplicationContext(), DashboardActivityFound.class));
+                startActivity(new Intent(getApplicationContext(), DashboardActivityLost.class));
                 overridePendingTransition(R.anim.fade, R.anim.fade);
                 finish();
                 return true;
