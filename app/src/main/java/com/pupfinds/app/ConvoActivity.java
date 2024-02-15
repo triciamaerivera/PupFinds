@@ -46,7 +46,7 @@ public class ConvoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_convo);
 
         senderID = FirebaseAuth.getInstance().getUid();
-        receiverID = getIntent().getStringExtra("item_owner_uid");
+        receiverID = getIntent().getStringExtra("receiver_uid");
 
         Toolbar toolbarConvo = findViewById(R.id.toolbarConvo);
         setSupportActionBar(toolbarConvo);
@@ -134,29 +134,29 @@ public class ConvoActivity extends AppCompatActivity {
     }
 
     private void loadReceiverInfo(String receiverUID) {
-        DatabaseReference userProfileRef = FirebaseDatabase.getInstance().getReference("users").child(receiverUID);
-
-        userProfileRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                    if (userProfile != null) {
-                        // Add the displayName field to the UserProfile object
-                        userProfile.setDisplayName(userProfile.getFirstName() + " " + userProfile.getLastName());
-                        // Update the user profile information in the views
-                        updateUserProfileViews(userProfile);
+        if (receiverUID != null) {
+            DatabaseReference userProfileRef = FirebaseDatabase.getInstance().getReference("users").child(receiverUID);
+            userProfileRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
+                        if (userProfile != null) {
+                            // Add the displayName field to the UserProfile object
+                            userProfile.setDisplayName(userProfile.getFirstName() + " " + userProfile.getLastName());
+                            // Update the user profile information in the views
+                            updateUserProfileViews(userProfile);
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                // To-do: error handling
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // To-do: error handling
+                }
+            });
+        }
     }
-
 
 
     private void updateUserProfileViews(UserProfile userProfile) {
@@ -168,44 +168,4 @@ public class ConvoActivity extends AppCompatActivity {
         textViewReceiverProgram.setText(userProfile.getProgram());
         textViewReceiverName.setText(userProfile.getDisplayName());
     }
-
-//    private void loadReceiverInfo(String receiverUID) {
-//        DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("users").child(receiverUID);
-//        userReference.child(receiverUID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists()) {
-//                    UserProfile receiverUser = dataSnapshot.getValue(UserProfile.class);
-//                    if (receiverUser != null) {
-//                        Log.d("Debug", "User Data Exists");
-//                        Log.d("Debug", "Display Name: " + receiverUser.getDisplayName());
-//                        Log.d("Debug", "Program: " + receiverUser.getProgram());
-//
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                textViewReceiverName.setText(receiverUser.getDisplayName());
-//                                textViewReceiverProgram.setText(receiverUser.getProgram());
-//                            }
-//                        });
-//                    } else {
-//                        Log.d("Debug", "UserProfile is null");
-//                    }
-//                } else {
-//                    Log.d("Debug", "DataSnapshot does not exist");
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Log.e("onCancelled", "Error reading data: " + error.getMessage());
-//                // Handle onCancelled
-//            }
-//        });
-//
-//    }
-
-
-
 }

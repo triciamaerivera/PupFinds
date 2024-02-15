@@ -8,6 +8,8 @@ public class UserModel {
     private String lastName;
     private String displayName;
 
+    private String lastMessage;
+    private long lastMessageTimestamp;
     public UserModel() {
     }
 
@@ -65,6 +67,22 @@ public class UserModel {
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
+    }
+
+    public String getLastMessage() {
+        return lastMessage;
+    }
+
+    public void setLastMessage(String lastMessage) {
+        this.lastMessage = lastMessage;
+    }
+
+    public long getLastMessageTimestamp() {
+        return lastMessageTimestamp;
+    }
+
+    public void setLastMessageTimestamp(long lastMessageTimestamp) {
+        this.lastMessageTimestamp = lastMessageTimestamp;
     }
 }
 

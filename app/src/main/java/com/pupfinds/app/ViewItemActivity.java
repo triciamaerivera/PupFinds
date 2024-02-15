@@ -77,8 +77,8 @@ public class ViewItemActivity extends AppCompatActivity {
 
             buttonClaimOrReturn.setOnClickListener(view -> {
                 Intent intent = new Intent(ViewItemActivity.this, ConvoActivity.class);
-                intent.putExtra("current_user_uid", FirebaseAuth.getInstance().getUid()); // Pass the current user's UID
-                intent.putExtra("item_owner_uid", userUid); // Pass the item owner's UID
+                intent.putExtra("current_user_uid", FirebaseAuth.getInstance().getUid());
+                intent.putExtra("receiver_uid", userUid);
                 startActivity(intent);
                 finish();
             });
