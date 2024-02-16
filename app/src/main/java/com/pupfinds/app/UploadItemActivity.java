@@ -25,6 +25,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import android.app.DatePickerDialog;
+
+import java.util.Calendar;
+import java.util.Locale;
+
 
 public class UploadItemActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -46,6 +51,11 @@ public class UploadItemActivity extends AppCompatActivity {
         spinnerCategory = findViewById(R.id.spinnerCategory);
         spinnerBuilding = findViewById(R.id.spinnerBuilding); // Add spinnerBuilding
 
+        EditText locationEditText = findViewById(R.id.editTextLocation);
+        EditText itemNameEditText = findViewById(R.id.ItemName);
+        EditText itemDescriptionEditText = findViewById(R.id.ItemDescription);
+        EditText dateEditText = findViewById(R.id.editTextDate);
+
         Name = findViewById(R.id.ItemName);
         Description = findViewById(R.id.ItemDescription);
         editTextLocation = findViewById(R.id.editTextLocation);
@@ -59,6 +69,47 @@ public class UploadItemActivity extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference lostItemsStorageRef = storage.getReference("lost_item_images");
         StorageReference foundItemsStorageRef = storage.getReference("found_item_images");
+
+        // Set a click listener for the date field to open the date picker dialog
+        dateEditText.setOnClickListener(v -> {
+            // Get current date
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+            // Create a date picker dialog
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    UploadItemActivity.this,
+                    (view, selectedYear, selectedMonth, selectedDayOfMonth) -> {
+                        // Set the selected date on the date field
+                        String selectedDate = String.format(Locale.getDefault(), "%d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDayOfMonth);
+                        dateEditText.setText(selectedDate);
+                    },
+                    year, month, dayOfMonth);
+
+            // Show the date picker dialog
+            datePickerDialog.show();
+        });
+
+        // Add focus change listeners for location, item name, and item description fields
+        locationEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                validateField(locationEditText);
+            }
+        });
+
+        itemNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                validateField(itemNameEditText);
+            }
+        });
+
+        itemDescriptionEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                validateField(itemDescriptionEditText);
+            }
+        });
 
 
         // Add bottom navigation menu
@@ -160,6 +211,17 @@ public class UploadItemActivity extends AppCompatActivity {
                 // Do nothing here for now
             }
         });
+    }
+
+    // Method to validate a field (location, item name, or item description)
+    private void validateField(EditText editText) {
+        String fieldValue = editText.getText().toString().trim();
+
+        if (fieldValue.isEmpty()) {
+            editText.setError("Field is required");
+        } else {
+            editText.setError(null); // Clear the error if present
+        }
     }
 
     // Method to update the building spinner choices based on the selected campus

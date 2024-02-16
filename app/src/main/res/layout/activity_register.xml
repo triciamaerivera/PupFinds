@@ -279,7 +279,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/entry"
             android:hint="Student ID"
-            android:inputType="number"
+            android:inputType="text"
 
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
