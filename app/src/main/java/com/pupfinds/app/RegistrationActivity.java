@@ -41,28 +41,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
-
-
-
-
-        // Check if the user is already authenticated
-        //FirebaseUser currentUser = mAuth.getCurrentUser();
-        //if (currentUser != null) {
-            // User is already authenticated, redirect to the dashboard
-         //   redirectToDashboard();
-       // }
-
-        // Initialize the AuthStateListener
-        //authStateListener = firebaseAuth -> {
-         //   if (firebaseAuth.getCurrentUser() != null) {
-                // User is authenticated, redirect to the dashboard
-         //       redirectToDashboard();
-         //   }
-        //};
-
-        // Add the AuthStateListener
-        // mAuth.addAuthStateListener(authStateListener);
-
         imageButtonProfile = findViewById(R.id.imageButtonProfile);
         imageButtonProfile.setOnClickListener(v -> openFileChooser());
 
@@ -233,9 +211,6 @@ public class RegistrationActivity extends AppCompatActivity {
         String studentId = ((EditText) findViewById(R.id.editTextStudentID)).getText().toString().trim();
         String college = ((EditText) findViewById(R.id.editTextCollege)).getText().toString().trim();
         String program = ((EditText) findViewById(R.id.editTextProgram)).getText().toString().trim();
-
-
-
 
 
         // Check if the password is at least 6 characters long
